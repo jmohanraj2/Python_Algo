@@ -1,0 +1,49 @@
+def decimal_roundoff(decimal):
+    decimal = "{:.2f}".format(decimal)
+    #print("decimall",decimal)
+    nw_decimal = 9.9
+    ss1 = str(decimal)
+    dott = ss1.find(".")
+    strt = dott +2
+    end = strt +2
+    strt1 = dott +1
+    end1 = strt1 + 2
+    #print(dott,strt,strt1)
+    ss4 = ss1[strt:end]
+    #print("ss4",ss4)
+    if ss4 == " ":
+        ss2 = 0
+    else:
+        ss2 = int(ss1[strt:end])
+   # if ss2 == " ":
+   #     ss2 = 0
+    ss3 = int(ss1[strt1:end1])
+    #print(ss2)
+    #print("ss3",ss3)
+    if ss2 == 1 or ss2 == 2:
+        #print("12")
+        nw_decimal = ss1[:-1] + '0'
+        nw_decimal = "{:.2f}".format(nw_decimal)
+        return nw_decimal
+
+        #print("nw_decimal12",nw_decimal12)
+    elif ss2 == 3 or ss2 == 4 or ss2 == 6 or ss2 == 7:
+        #print("3, 4, 6, 7")
+        #lldigi = 5
+        nw_decimal = ss1[:-1] + '5'
+        
+        return nw_decimal
+        #print("nw_decimal2467",nw_decimal2467)
+    elif ss2 == 8 or ss2 == 9:
+        if ss2 == 8:
+            nw_decimal = float(ss1) + 0.02
+            nw_decimal = "{:.2f}".format(nw_decimal)
+            return nw_decimal
+        elif ss2 == 9:
+            nw_decimal = float(ss1) + 0.01
+            nw_decimal = "{:.2f}".format(nw_decimal)
+            return nw_decimal
+    else:
+        nw_decimal = decimal
+        return nw_decimal
+        #print("nw_decimal89",nw_decimal89)
